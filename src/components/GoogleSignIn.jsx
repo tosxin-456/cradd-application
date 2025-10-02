@@ -1,5 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google";
-import { API_BASE_URL } from "./config/apiConfig";
+import { API_BASE_URL } from "../config/apiConfig";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ErrorToast from "./ErrorComponent";
@@ -33,7 +33,7 @@ export default function SignInWithGoogle() {
       );
       localStorage.setItem("gottenThrough", data.user.howDidYouKnowUs || false);
       setError("");
-      navigate("/home");
+      navigate("/chat");
     } catch (error) {
       console.error("❌ Login error:", error);
       setError(error.message || "Login failed. Please try again.");

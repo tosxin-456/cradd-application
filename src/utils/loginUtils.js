@@ -42,7 +42,7 @@ export const login = async (data, setLoading, navigate, rememberMe, toast) => {
         // localStorage.setItem("onboarding", responseData.onboarding || false);
         localStorage.setItem("gottenThrough", responseData.user.howDidYouKnowUs || false);
 
-        navigate(`/home`);
+        navigate(`/chat`);
       }
     } else {
       const result = await response.json();

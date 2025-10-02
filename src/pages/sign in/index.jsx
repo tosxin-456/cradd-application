@@ -3,7 +3,7 @@ import React, { useState, useEffect, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
-import { handleTogglePassword, login } from "../utils/loginUtils.js";
+import { handleTogglePassword, login } from "../../utils/loginUtils.js";
 
 // Lazy load heavy dependencies
 const ToastContainer = lazy(() =>
@@ -12,12 +12,12 @@ const ToastContainer = lazy(() =>
   }))
 );
 
-const SignInWithGoogle = lazy(() => import("./GoogleSignIn.jsx"));
+const SignInWithGoogle = lazy(() => import("../../components/GoogleSignIn.jsx"));
 
 // Lazy load CSS imports
 const loadStyles = () => {
   // import('bootstrap/dist/css/bootstrap.min.css');
-  import("./App.css");
+  import("../../App.css");
   import("react-toastify/dist/ReactToastify.css");
 };
 
@@ -64,7 +64,7 @@ function Login() {
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     if (token) {
-      navigate("/home");
+      navigate("/chat");
     }
   }, [navigate]);
 
@@ -94,9 +94,9 @@ function Login() {
     const loadImages = async () => {
       try {
         const [designImg, logoImg, loginImg] = await Promise.all([
-          import("./images/design.png"),
-          import("./images/logo.png"),
-          import("./images/login.png")
+          import("../../assets/images/design.png"),
+          import("../../assets/images/logo.png"),
+          import("../../assets/images/login.png")
         ]);
 
         setImages({

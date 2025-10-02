@@ -31,7 +31,7 @@ export const handleLogoutLanding = () => {
 
 // Function to handle home redirection
 export const handleHome = () => {
-  window.location.href = '/home';
+  window.location.href = '/chat';
 };
 
 // Update Streak
